@@ -1,8 +1,87 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Button from "../component/Button";
 import Navbar from "../component/Navbar";
+import { useForm } from "react-hook-form";
 
 export default function GuruPage() {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => {
+    const dt = JSON.parse(localStorage.getItem("pelanggaran"));
+    const copy = dt.slice();
+    copy.push(data);
+    localStorage.setItem("pelanggaran", JSON.stringify(copy));
+  };
+
+  useEffect(() => {
+    console.log(localStorage.getItem("pelanggaran"));
+  }, []);
+
+  const getPelanggaranMaster = () => {
+    return JSON.parse(localStorage.getItem("pelanggaran_master"));
+  };
+
+  const getItemData = () => {
+    return JSON.parse(localStorage.getItem("pelanggaran"));
+  };
+
+  const getNilaiPelanggaran = (id) => {
+    const dataPelanggaran = JSON.parse(
+      localStorage.getItem("pelanggaran_master")
+    );
+    for (let index = 0; index < dataPelanggaran.length; index++) {
+      if (dataPelanggaran[index].id === parseInt(id)) {
+        // console.log(nis);
+        return dataPelanggaran[index].nilai;
+        break;
+      } else {
+        continue;
+      }
+    }
+  };
+  const getPelanggaran = (id) => {
+    const dataPelanggaran = JSON.parse(
+      localStorage.getItem("pelanggaran_master")
+    );
+    for (let index = 0; index < dataPelanggaran.length; index++) {
+      if (dataPelanggaran[index].id === parseInt(id)) {
+        // console.log(nis);
+        return dataPelanggaran[index].pelanggaran;
+      } else {
+        continue;
+      }
+    }
+  };
+
+  const getNameSiswa = (nis) => {
+    const dataSiswa = JSON.parse(localStorage.getItem("siswa"));
+    for (let index = 0; index < dataSiswa.length; index++) {
+      if (dataSiswa[index].nis === nis) {
+        // console.log(nis);
+        return dataSiswa[index].nama;
+        break;
+      } else {
+        continue;
+      }
+    }
+  };
+
+  const getKelasSiswa = (nis) => {
+    const dataSiswa = JSON.parse(localStorage.getItem("siswa"));
+    for (let index = 0; index < dataSiswa.length; index++) {
+      if (dataSiswa[index].nis === nis) {
+        // console.log(nis);
+        return dataSiswa[index].kelas;
+      } else {
+        continue;
+      }
+    }
+  };
+
   return (
     <div>
       <Navbar>
@@ -28,25 +107,43 @@ export default function GuruPage() {
                   </div>
                 </div>
                 <div class="">
-                  <div>
-                    <input
-                      type="text"
-                      name="company-website"
-                      id="company-website"
-                      class="focus:ring-indigo-500 focus:border-indigo-500 rounded-none rounded-md sm:text-sm border-gray-300"
-                    />
-                  </div>
-                  <div>
-                    <input
-                      type="text"
-                      name="company-website"
-                      id="company-website"
-                      class="focus:ring-indigo-500 mt-1 focus:border-indigo-500 rounded-none rounded-md sm:text-sm border-gray-300"
-                    />
-                  </div>
-                  <Button type="button" nolock className="w-1/2 mt-2">
-                    Submit
-                  </Button>
+                  <form onSubmit={handleSubmit(onSubmit)}>
+                    <div>
+                      <input
+                        type="text"
+                        name="company-website"
+                        {...register("nis", { required: true })}
+                        id="company-website"
+                        class="focus:ring-indigo-500 focus:border-indigo-500 rounded-none rounded-md sm:text-sm border-gray-300"
+                      />
+                      <input
+                        type="hidden"
+                        value={new Date().toLocaleDateString("en-US") + ""}
+                        {...register("tanggal", { required: true })}
+                      />
+                    </div>
+                    <div>
+                      <select
+                        name="company-website"
+                        id="company-website"
+                        {...register("pelanggaran", { required: true })}
+                        class="focus:ring-indigo-500 mt-1 focus:border-indigo-500 rounded-none w-full rounded-md sm:text-sm border-gray-300"
+                        form="carform"
+                      >
+                        {getPelanggaranMaster().map((object) => {
+                          return (
+                            <option value={object.id}>
+                              {object.pelanggaran}
+                            </option>
+                          );
+                        })}
+                      </select>
+                    </div>
+
+                    <Button type="submit" nolock className="w-1/2 mt-2">
+                      Submit
+                    </Button>
+                  </form>
                 </div>
               </div>
             </div>
@@ -94,62 +191,44 @@ export default function GuruPage() {
                   </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
-                  <tr>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                      <div class="flex items-center">
-                        <div class="text-sm font-medium text-gray-700">
-                          14 February 2021
-                        </div>
-                      </div>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                      <div class="text-sm font-medium text-gray-700">
-                        Main hp dikelas
-                      </div>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                      <div class="text-sm font-medium text-gray-1000">
-                        Bu Hartini.spd
-                      </div>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                      <div class="text-sm font-medium text-gray-700">IPA 1</div>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                      <div class="text-sm font-medium text-gray-900">Mencuri hp</div>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                      <div class="text-sm font-medium text-gray-900">100</div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                      <div class="flex items-center">
-                        <div class="text-sm font-medium text-gray-700">
-                          14 February 2021
-                        </div>
-                      </div>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                      <div class="text-sm font-medium text-gray-700">
-                        Main hp dikelas
-                      </div>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                      <div class="text-sm font-medium text-gray-1000">
-                        Bu Hartini.spd
-                      </div>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                      <div class="text-sm font-medium text-gray-900">IPS 4</div>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                      <div class="text-sm font-medium text-gray-900">bermain</div>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                      <div class="text-sm font-medium text-gray-900">100</div>
-                    </td>
-                  </tr>
+                  {getItemData().map((object) => {
+                    return (
+                      <tr>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                          <div class="flex items-center">
+                            <div class="text-sm font-medium text-gray-700">
+                              {object.tanggal}
+                            </div>
+                          </div>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                          <div class="text-sm font-medium text-gray-700">
+                            {object.nis}
+                          </div>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                          <div class="text-sm font-medium text-gray-1000">
+                            {getNameSiswa(object.nis)}
+                          </div>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                          <div class="text-sm font-medium text-gray-700">
+                            {getKelasSiswa(object.nis)}
+                          </div>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                          <div class="text-sm font-medium text-gray-900">
+                            {getPelanggaran(object.pelanggaran)}
+                          </div>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                          <div class="text-sm font-medium text-gray-900">
+                            {getNilaiPelanggaran(object.pelanggaran)}
+                          </div>
+                        </td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
             </div>
