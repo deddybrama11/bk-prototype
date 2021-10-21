@@ -13,6 +13,7 @@ export default function GuruPage() {
   const onSubmit = (data) => {
     const dt = JSON.parse(localStorage.getItem("pelanggaran"));
     const copy = dt.slice();
+    data = { ...data, tanggal: new Date().toLocaleDateString("en-US") + "" };
     copy.push(data);
     localStorage.setItem("pelanggaran", JSON.stringify(copy));
   };
@@ -115,11 +116,6 @@ export default function GuruPage() {
                         {...register("nis", { required: true })}
                         id="company-website"
                         class="focus:ring-indigo-500 focus:border-indigo-500 rounded-none rounded-md sm:text-sm border-gray-300"
-                      />
-                      <input
-                        type="hidden"
-                        value={new Date().toLocaleDateString("en-US") + ""}
-                        {...register("tanggal", { required: true })}
                       />
                     </div>
                     <div>
