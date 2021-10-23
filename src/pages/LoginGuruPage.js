@@ -78,7 +78,7 @@ function LoginGuruPage() {
           </div>
 
           <div>
-            <Button className="w-full" type="submit">
+            <Button className="w-full bg-indigo-500" href="/guru">
               Sign in
             </Button>
           </div>

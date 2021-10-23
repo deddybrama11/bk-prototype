@@ -10,11 +10,13 @@ const initial = [
     nis: "E311",
     pelanggaran: 1,
     tanggal: "10/21/2021",
+    status: "Tidak Bersalah",
   },
   {
     nis: "E312",
     pelanggaran: 2,
     tanggal: "10/21/2021",
+    status: "Bersalah",
   },
 ];
 
@@ -39,6 +41,21 @@ const initialPelanggaranMaster = [
     pelanggaran: "Sexual harrasment",
     nilai: 35,
   },
+  {
+    id: 5,
+    pelanggaran: "Tidur",
+    nilai: 5,
+  },
+  {
+    id: 6,
+    pelanggaran: "Makan saat pelajaran",
+    nilai: 5,
+  },
+  {
+    id: 7,
+    pelanggaran: "Menyontek",
+    nilai: 9,
+  },
 ];
 const initialSiswa = [
   {
@@ -60,6 +77,31 @@ const initialSiswa = [
     nis: "E314",
     nama: "Reza Rahardian",
     kelas: "XI IPS 2",
+  },
+  {
+    nis: "E315",
+    nama: "Vyan syah",
+    kelas: "XI IPA 3",
+  },
+  {
+    nis: "E316",
+    nama: "Dhany Rivaldy",
+    kelas: "XI IPA 1",
+  },
+  {
+    nis: "E317",
+    nama: "Anas Maulana",
+    kelas: "XI IPS 5",
+  },
+  {
+    nis: "E318",
+    nama: "Christoper Devan",
+    kelas: "XI IPA 4",
+  },
+  {
+    nis: "E319",
+    nama: "Avinda Renaldi",
+    kelas: "XI IPA 5",
   },
 ];
 
