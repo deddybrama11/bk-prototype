@@ -1,7 +1,7 @@
 {
   "name": "bk-prototype",
   "version": "0.1.0",
-  "homepage": "./",
+  "homepage": "https://bk.robotindo.id/",
   "private": true,
   "dependencies": {
     "@craco/craco": "^6.3.0",
