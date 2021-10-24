@@ -114,6 +114,7 @@ export default function BKPage() {
   return (
     <div>
       <Navbar color="bg-red-900" link="/login-bk">
+        <h2 className="h-10 justify-end">Selamat datang, Edi S.Pd (BK)</h2> 
         <div className="my-2 ml-2 text-md text-gray-800">Riwayat</div>
         <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
           <table className="min-w-full divide-y divide-gray-200">
