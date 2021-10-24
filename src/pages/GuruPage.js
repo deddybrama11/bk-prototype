@@ -81,7 +81,7 @@ export default function GuruPage() {
 
   return (
     <div>
-      <Navbar color="bg-indigo-900" link="/login-guru">
+      <Navbar color="bg-indigo-900" link="#/login-guru">
         <h2 className="h-10 justify-end">Selamat datang, Hartini S.Pd (BK)</h2> 
         <div className="flex flex-col">
           <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
