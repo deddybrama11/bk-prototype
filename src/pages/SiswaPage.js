@@ -1,3 +1,4 @@
+import { obj } from "duplexify";
 import React from "react";
 import Navbar from "../component/Navbar";
 
@@ -52,8 +53,21 @@ function SiswaPage() {
     }
   };
 
+  const getNameSiswa = (nis) => {
+    const dataSiswa = JSON.parse(localStorage.getItem("siswa"));
+    for (let index = 0; index < dataSiswa.length; index++) {
+      if (dataSiswa[index].nis === nis) {
+        // console.log(nis);
+        return dataSiswa[index].nama;
+        break;
+      } else {
+        continue;
+      }
+    }
+  };
   return (
     <Navbar color="bg-blue-800" link="/login-siswa">
+    <h2 className="h-10 justify-end">Selamat datang, {getNameSiswa("E311")}</h2> 
       <div className="flex flex-col">
         <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">

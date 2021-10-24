@@ -82,6 +82,7 @@ export default function GuruPage() {
   return (
     <div>
       <Navbar color="bg-indigo-900" link="/login-guru">
+        <h2 className="h-10 justify-end">Selamat datang, Hartini S.Pd (BK)</h2> 
         <div className="flex flex-col">
           <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div className="text-center my-4 font-weight-800 text-base font-bold tracking-widest">
@@ -180,6 +181,12 @@ export default function GuruPage() {
                     >
                       POIN
                     </th>
+                    <th
+                      scope="col"
+                      className="px-6 py-3 text-left text-xs font-medium text-gray-900 font-bold uppercase tracking-wider"
+                    >
+                      STATUS
+                    </th>
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
@@ -216,6 +223,11 @@ export default function GuruPage() {
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                           <div className="text-sm font-medium text-gray-900">
                             {getNilaiPelanggaran(object.pelanggaran)}
+                          </div>
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                          <div className="text-sm font-medium text-gray-900">
+                            {object.status}
                           </div>
                         </td>
                       </tr>

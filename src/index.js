@@ -18,6 +18,24 @@ const initial = [
     tanggal: "10/21/2021",
     status: "Bersalah",
   },
+  {
+    nis: "E313",
+    pelanggaran: 3,
+    tanggal: "10/22/2021",
+    status: "Bersalah",
+  },
+  {
+    nis: "E314",
+    pelanggaran: 4,
+    tanggal: "10/22/2021",
+    status: "Bersalah",
+  },
+  {
+    nis: "E315",
+    pelanggaran: 5,
+    tanggal: "10/23/2021",
+    status: "Bersalah",
+  },
 ];
 
 const initialPelanggaranMaster = [
@@ -60,7 +78,7 @@ const initialPelanggaranMaster = [
 const initialSiswa = [
   {
     nis: "E311",
-    nama: "Rais Maulana",
+    nama: "Avinda Alam",
     kelas: "XI IPA 3",
   },
   {
