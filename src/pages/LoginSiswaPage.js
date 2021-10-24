@@ -77,7 +77,7 @@ function LoginSiswaPage() {
           </div>
 
           <div>
-            <Button className="w-full bg-indigo-500" href="#/siswa">
+            <Button className="w-full bg-indigo-500" href="/siswa">
               Sign in
             </Button>
           </div>

@@ -66,7 +66,7 @@ function SiswaPage() {
     }
   };
   return (
-    <Navbar color="bg-blue-800" link="#/login-siswa">
+    <Navbar color="bg-blue-800" link="/login-siswa">
     <h2 className="h-10 justify-end">Selamat datang, {getNameSiswa("E311")}</h2> 
       <div className="flex flex-col">
         <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">

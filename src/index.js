@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
-import { HashRouter as Router } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 
 const initial = [
@@ -140,9 +140,9 @@ if (localStorage.getItem("pelanggaran_master") === null) {
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router basename="/calendar/">
+    <BrowserRouter>
       <App />
-    </Router>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
 );

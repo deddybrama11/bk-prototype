@@ -78,7 +78,7 @@ function LoginBKPage() {
         </div>
 
         <div>
-          <Button className="w-full bg-indigo-500" href="#/bk">
+          <Button className="w-full bg-indigo-500" href="/bk">
             Sign in
           </Button>
         </div>
