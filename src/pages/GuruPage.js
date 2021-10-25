@@ -141,7 +141,7 @@ export default function GuruPage() {
               </div>
             </div>
             <div className="my-2 ml-2 text-md text-gray-800">Riwayat</div>
-            <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+            <div className="shadow overflow-auto border-b border-gray-200 sm:rounded-lg">
               <table className="min-w-full divide-y divide-gray-200">
                 <thead className="bg-white">
                   <tr>
